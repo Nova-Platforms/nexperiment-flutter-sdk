@@ -46,7 +46,7 @@ class _AppScreenState extends State<AppScreen> {
   Future<void> initializeNexperimentSDK() async {
     nexperimentSDK = Nexperiment();
     await nexperimentSDK.init(
-        'http://localhost:3010', '9580f7cd-0133-4f00-ad69-3dcd111a55e7', '0e800f01-2fe9-4c58-9834-79c9dc567ab8');
+        'http://localhost:3010', '288ed75a-1625-4c10-b83e-bf23a91de93a', 'f01fc383-3db1-47fb-9538-e784407f7b18');
   }
 
   void _onItemTapped(int index) {
