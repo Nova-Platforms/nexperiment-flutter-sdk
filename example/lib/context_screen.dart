@@ -42,82 +42,83 @@ class _ContextScreenState extends State<ContextScreen> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const Text(
-            'User Data',
-            style: TextStyle(
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 16.0),
-          TextFormField(
-            controller: _emailController,
-            decoration: const InputDecoration(
-              labelText: 'Email',
-              prefixIcon: Icon(Icons.email),
-            ),
-          ),
-          const SizedBox(height: 16.0),
-          TextFormField(
-            controller: _countryController,
-            decoration: const InputDecoration(
-              labelText: 'Country',
-              prefixIcon: Icon(Icons.money),
-            ),
-          ),
-          const SizedBox(height: 16.0),
-          TextFormField(
-            controller: _stateController,
-            decoration: const InputDecoration(
-              labelText: 'State',
-              prefixIcon: Icon(Icons.location_city),
-            ),
-          ),
-          const SizedBox(height: 16.0),
-          TextFormField(
-            controller: _ageController,
-            decoration: const InputDecoration(
-              labelText: 'Age',
-              prefixIcon: Icon(Icons.calendar_today),
-            ),
-          ),
-          const SizedBox(height: 32.0),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              minimumSize: const Size.fromHeight(40),
-              backgroundColor: Colors.green,
-            ),
-            onPressed: () async {
-              final String email = _emailController.text;
-              final String state = _stateController.text;
-              final String country = _countryController.text;
-              final String age = _ageController.text;
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                'User Data',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 16.0),
+              TextFormField(
+                controller: _emailController,
+                decoration: const InputDecoration(
+                  labelText: 'Email',
+                  prefixIcon: Icon(Icons.email),
+                ),
+              ),
+              const SizedBox(height: 16.0),
+              TextFormField(
+                controller: _countryController,
+                decoration: const InputDecoration(
+                  labelText: 'Country',
+                  prefixIcon: Icon(Icons.money),
+                ),
+              ),
+              const SizedBox(height: 16.0),
+              TextFormField(
+                controller: _stateController,
+                decoration: const InputDecoration(
+                  labelText: 'State',
+                  prefixIcon: Icon(Icons.location_city),
+                ),
+              ),
+              const SizedBox(height: 16.0),
+              TextFormField(
+                controller: _ageController,
+                decoration: const InputDecoration(
+                  labelText: 'Age',
+                  prefixIcon: Icon(Icons.calendar_today),
+                ),
+              ),
+              const SizedBox(height: 32.0),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size.fromHeight(40),
+                  backgroundColor: Colors.green,
+                ),
+                onPressed: () async {
+                  final String email = _emailController.text;
+                  final String state = _stateController.text;
+                  final String country = _countryController.text;
+                  final String age = _ageController.text;
 
-              try {
-                widget.nexperimentSDK.setContext({
-                  'email': email,
-                  'country': country,
-                  'state': state,
-                  'age': age,
-                });
+                  try {
+                    widget.nexperimentSDK.setContext({
+                      'email': email,
+                      'country': country,
+                      'state': state,
+                      'age': age,
+                    });
 
-                showAlertDialog(context);
-              } catch (e) {
-                print('Error: $e');
-              }
-            },
-            child: const Text(
-              'SAVE',
-              style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w700),
-            ),
+                    showAlertDialog(context);
+                  } catch (e) {
+                    print('Error: $e');
+                  }
+                },
+                child: const Text(
+                  'SAVE',
+                  style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w700),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
-    );
+        ));
   }
 
   showAlertDialog(BuildContext context) {

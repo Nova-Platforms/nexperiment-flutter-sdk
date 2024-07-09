@@ -35,7 +35,9 @@ class _LoginScreen extends State<LoginScreen> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           // While waiting for the result, show a loading indicator or placeholder
-          return const CircularProgressIndicator(); // Example loading indicator
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         } else if (snapshot.hasError) {
           // Handle error case
           return Text('Error: ${snapshot.error}');

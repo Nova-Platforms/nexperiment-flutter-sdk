@@ -54,7 +54,7 @@ class Nexperiment {
       );
 
       if (response.statusCode == 200) {
-        return Toggle(response.data["objectId"], response.data["appliedRuleId"], response.data["value"]);
+        return Toggle(response.data["key"], response.data["appliedRule"], response.data["value"]);
       } else {
         throw Exception('Failed to fetch feature toggle');
       }
@@ -80,7 +80,7 @@ class Nexperiment {
       if (response.statusCode == 200) {
         Map<String, dynamic> json = jsonDecode(response.data["value"].toString());
 
-        return Config(response.data["objectId"], response.data["appliedRuleId"], json);
+        return Config(response.data["key"], response.data["appliedRule"], json);
       } else {
         throw Exception('Failed to fetch feature toggle');
       }

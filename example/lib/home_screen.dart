@@ -29,7 +29,9 @@ class _HomeScreen extends State<HomeScreen> {
       future: _nexperimentSDK.getToggle("new-home-layout").then((toggle) => toggle.value),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator();
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else {

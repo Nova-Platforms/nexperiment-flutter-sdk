@@ -1,6 +1,6 @@
 class Toggle {
-  final String objectId;
-  final String appliedRuleId;
+  final String key;
+  final String appliedRule;
   final bool value;
-  Toggle(this.objectId, this.appliedRuleId, this.value);
+  Toggle(this.key, this.appliedRule, this.value);
 }
